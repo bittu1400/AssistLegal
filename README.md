@@ -41,7 +41,8 @@ LegalAssist/
 ├── frontend/
 │   ├── index.html              # Main UI
 │   ├── style.css               # Stylesheet
-│   └── app.js                  # Chatbot logic and Firebase integration
+|   ├── chatbot.js              # Chatbot logic
+│   └── auth.js                 # Firebase integration
 ├── firebase/
 │   └── firebase-config.js      # Firebase SDK config
 ├── README.md
