@@ -78,7 +78,7 @@ LegalAssist/
 
 ## 👨‍💻 Team
 
-Built with ❤️ by a group of four students as part of a university project, led by **Suraj**, focusing on combining AI and law for real-world impact in Nepal.
+Built with ❤️ by a group of four students as part of a university project, led by **Suraj sah(Backend)**, **Pawan Rishal(Chatbot)**, **Utsuk Kharel(Frontend)** and **Aditya Adhikari(UI/ UX)** , focusing on combining AI with law and Order for real-world impact around the globe.
 
 ---
 
