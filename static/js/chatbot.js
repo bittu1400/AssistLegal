@@ -1,3 +1,5 @@
+let userAuth = undefined
+
 document.addEventListener('DOMContentLoaded', async function () {
     const chatBody = document.querySelector('.chat-body');
     const chatInputField = document.querySelector('.chat-input-field');
@@ -8,16 +10,17 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     // Scroll to bottom of chat
     scrollToBottom();
-    (async () => {
-        const response = await fetch("http://127.0.0.1:8000/firebase-config");
-        const firebaseConfig = await response.json();
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
 
-        // Optionally expose Firebase app
-        firebaseApp = firebase.app();
-    })();
+    const response = await fetch("http://127.0.0.1:8000/firebase-config");
+    const firebaseConfig = await response.json();
+
+    if (!firebase?.apps?.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
+
+    firebase.auth().onAuthStateChanged(async (user) => {
+        userAuth = user
+    })
 
     // Send message when clicking the send button
     if (chatSendBtn) {
@@ -160,42 +163,41 @@ document.addEventListener('DOMContentLoaded', async function () {
     function scrollToBottom() {
         chatBody.scrollTop = chatBody.scrollHeight;
     }
-    function sendToServer(message) {
-        const delay = Math.floor(Math.random() * 1000) + 1000;
+    async function sendToServer(message) {
 
-        setTimeout(() => {
-            firebase.auth().onAuthStateChanged(async (user) => {
-                if (!user) {
-                    console.error('No authenticated user found');
-                    addBotMessage('You are not logged in.');
-                    return;
+        // console.log(userAuth);
+        
+        // if (!userAuth) {
+        //     showToast("You are not logged in!!!")
+        //     alert("You are not logged in!!!")
+        //     return
+        // }
+
+        // const token = await userAuth.getIdToken();
+        console.log("asdasdasdasdakshdfj");
+        
+        fetch('http://127.0.0.1:8000/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ user_message: message })
+        })
+            .then(async response => {
+                console.log("Raw response status:", response.status);
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(data.detail || 'Unknown error');
                 }
-
-                const token = await user.getIdToken();
-                fetch('http://127.0.0.1:8000/chat', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify({ user_message: message })
-                })
-                    .then(async response => {
-                        console.log("Raw response status:", response.status);
-                        const data = await response.json();
-                        if (!response.ok) {
-                            throw new Error(data.detail || 'Unknown error');
-                        }
-                        addBotMessage(data.response);
-                        saveChatHistory();
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        addBotMessage('Sorry, I encountered an error. Please try again later.');
-                        saveChatHistory();
-                    });
+                addBotMessage(data.response);
+                saveChatHistory();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                addBotMessage('Sorry, I encountered an error. Please try again later.');
+                saveChatHistory();
             });
-        }, delay);
     }
 
     function saveChatHistory() {
@@ -269,6 +271,4 @@ document.addEventListener('DOMContentLoaded', async function () {
             }, 300);
         }, 3000);
     }
-
-    console.log('Chatbot.js loaded successfully');
 });

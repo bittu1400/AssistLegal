@@ -76,14 +76,15 @@ except Exception as e:
     raise RuntimeError(f"Vector DB not found or corrupted: {str(e)}")
 
 @app.post("/chat")
-async def chat(req: ChatRequest, token: str = Depends(oauth2_scheme)):
-    logger.info(f"Received chat request: {req.user_message}")
+async def chat(req: ChatRequest):
+# async def chat(req: ChatRequest, token: str = Depends(oauth2_scheme)):
+    print("ASdasdasd")
     try:
-        # Verify token
-        decoded_token = auth.verify_id_token(token)
-        uid = decoded_token['uid']
-        logger.info("Verified token for user: %s", uid)
-        # Get context from vector DB
+        # # Verify token
+        # decoded_token = auth.verify_id_token(token)
+        # uid = decoded_token['uid']
+        # logger.info("Verified token for user: %s", uid)
+        # # Get context from vector DB
         context = retrieve_context(req.user_message, vectordb)
         logger.info("Retrieved context")
 
@@ -93,7 +94,7 @@ async def chat(req: ChatRequest, token: str = Depends(oauth2_scheme)):
 
         # Save message & response to Firestore
         db.collection("messages").add({
-            "uid": uid,
+            # "uid": uid,
             "user_message": req.user_message,
             "bot_reply": answer
         })
