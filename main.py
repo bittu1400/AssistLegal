@@ -20,14 +20,6 @@ logger = logging.getLogger(__name__)
 # Load environment variables
 load_dotenv()
 
-# print(  {"apiKey": os.getenv("FIREBASE_API_KEY"),
-#         "authDomain": os.getenv("FIREBASE_AUTH_DOMAIN"),
-#         "projectId": os.getenv("FIREBASE_PROJECT_ID"),
-#         "appId": os.getenv("FIREBASE_APP_ID"),
-#         "storageBucket": os.getenv("FIREBASE_STORAGE_BUCKET"),
-#         "messagingSenderId": os.getenv("FIREBASE_MSG_SENDER_ID"),
-#         "measurementId": os.getenv("FIREBASE_MEASUREMENT_ID"),
-#         "databaseURL": os.getenv("DATABASEURL")})
 
 # Initialize Firebase Admin
 cred = credentials.Certificate(os.getenv("FIREBASE_ADMIN_KEY_PATH"))
@@ -68,23 +60,19 @@ class ChatRequest(BaseModel):
     user_message: str
 
 # Load vector DB
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-try:
-    vectordb = FAISS.load_local("vectordb", embeddings, allow_dangerous_deserialization=True)
-except Exception as e:
-    logger.error(f"Failed to load vector DB: {str(e)}")
-    raise RuntimeError(f"Vector DB not found or corrupted: {str(e)}")
+# embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+# try:
+#     vectordb = FAISS.load_local("vectordb", embeddings, allow_dangerous_deserialization=True)
+# except Exception as e:
+#     logger.error(f"Failed to load vector DB: {str(e)}")
+#     raise RuntimeError(f"Vector DB not found or corrupted: {str(e)}")
 
+from injetion import chatbot_service
 @app.post("/chat")
 async def chat(req: ChatRequest):
 # async def chat(req: ChatRequest, token: str = Depends(oauth2_scheme)):
-    print("ASdasdasd")
     try:
-        # # Verify token
-        # decoded_token = auth.verify_id_token(token)
-        # uid = decoded_token['uid']
-        # logger.info("Verified token for user: %s", uid)
-        # # Get context from vector DB
+        vectordb = chatbot_service.get_vectordb()
         context = retrieve_context(req.user_message, vectordb)
         logger.info("Retrieved context")
 

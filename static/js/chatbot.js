@@ -164,18 +164,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         chatBody.scrollTop = chatBody.scrollHeight;
     }
     async function sendToServer(message) {
-
-        // console.log(userAuth);
-        
-        // if (!userAuth) {
-        //     showToast("You are not logged in!!!")
-        //     alert("You are not logged in!!!")
-        //     return
-        // }
-
-        // const token = await userAuth.getIdToken();
-        console.log("asdasdasdasdakshdfj");
-        
         fetch('http://127.0.0.1:8000/chat', {
             method: 'POST',
             headers: {

@@ -52,7 +52,7 @@ def retrieve_context(query, vectordb, k=5):
     return context
 
 # Step 6: Ask Gemini to answer
-def generate_answer(query, context):
+# def generate_answer(query, context):
     prompt = f"""
 You are a legal expert specializing in Nepal's Electronic Transactions Act (ETA) and associated cyber laws. Your primary responsibility is to assist users by providing clear, concise, and legally accurate information on topics related to:
 
@@ -89,6 +89,39 @@ Answer:
     
     response = model.generate_content(prompt, generation_config={"temperature": 0, "max_output_tokens": 500})
     return response.text
+
+# REMOVE: embeddings and vectordb creation here
+
+def generate_answer(query, context):
+    prompt = f"""
+You are a legal expert specializing in Nepal's Electronic Transactions Act (ETA) and associated cyber laws. Your primary responsibility is to assist users by providing clear, concise, and legally accurate information on topics related to:
+
+1. Electronic records and digital signatures
+2. Cybercrimes and their penalties
+3. Legal recognition of electronic transactions
+4. Roles and responsibilities of certifying authorities
+5. Jurisdiction and enforcement of cyber laws in Nepal
+
+Important Instructions:
+- NO bullet points, NO special symbols like *, ~, # etc.
+- Keep the formatting clean and formal.
+- Do not hallucinate or add extra information.
+- Answer length depends on the nature of the question and context.
+- Maintain good grammar and professional tone.
+
+Context:
+{context}
+
+User's Question:
+{query}
+
+Provide the answer following the exact format above.
+
+Answer:
+"""
+    response = model.generate_content(prompt, generation_config={"temperature": 0, "max_output_tokens": 500})
+    return response.text
+
 
 def main():
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
