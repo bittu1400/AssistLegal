@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LegalAssist - Your Legal Resource Partner</title>
+
+  <style>
+    :root {
+      --primary-blue: #0a3d62;
+      --secondary-blue: #3498db;
+      --accent-blue: #60a3bc;
+      --dark-black: #1e272e;
+      --light-black: #2d3436;
+      --white: #f5f6fa;
+      --gray: #dcdde1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--white);
+      color: var(--dark-black);
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .logo-image {
+      margin-right: 15px;
+    }
+
+    .logo-image img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      object-fit: cover;
+      background-color: var(--white);
+      padding: 6px;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.5rem 2rem;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .btn-login {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--white);
+    }
+
+    .btn-login:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-signup {
+      background-color: var(--white);
+      color: var(--primary-blue);
+      border: 1px solid var(--white);
+    }
+
+    .btn-signup:hover {
+      background-color: var(--gray);
+    }
+
+    .hero {
+      height: 91.3vh;
+      padding-top: 60px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-black) 100%);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .hero-image {
+      max-width: 45%;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-primary {
+      background-color: var(--secondary-blue);
+      color: var(--white);
+      border: none;
+      padding: 0.8rem 3.5rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-blue);
+    }
+
+    footer {
+      background-color: #0B3D62;
+      color: var(--white);
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+
+    /* CHAT SECTION */
+    .chat-section {
+      padding: 4rem 2rem;
+      background-color: #f8f9fa;
+    }
+
+    .chat-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .chat-title {
+      text-align: center;
+      color: #0a3d62;
+      margin-bottom: 1rem;
+    }
+
+    #chat-box {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      height: 300px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    #chat-box div {
+      margin-bottom: 0.75rem;
+    }
+
+    #chat-form {
+      display: flex;
+      gap: 1rem;
+    }
+
+    #user-input {
+      flex: 1;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    #chat-form button {
+      padding: 0.75rem 1.5rem;
+      background-color: #3498db;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    #chat-form button:hover {
+      background-color: #2980b9;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text {
+        margin-bottom: 2rem;
+      }
+
+      .hero-image {
+        max-width: 80%;
+      }
+
+      .cta-buttons {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <a href="#" class="logo">
+        <div class="logo-image">
+          <img src="/static/svg/logo.png" alt="Scales of Justice" />
+        </div>
+        LegalAssist
+      </a>
+    </div>
+    <div class="auth-buttons">
+      <a href="login.html" class="btn btn-login" id="login-button">Login</a>
+      <a href="signup.html" class="btn btn-signup" id="signup-button">Sign Up</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Professional Legal Solutions<br />for Everyone</h1>
+        <p>
+          Navigate the complex world of law with ease. LegalAssist provides expert guidance, resources, and tools designed to make legal matters accessible and manageable.
+        </p>
+        <div class="cta-buttons">
+          <a href="login.html" class="btn btn-primary" id="hero-signup">Get Started</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/static/svg/lawworking.jpg" alt="Legal professionals working" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 LegalAssist. All rights reserved.</p>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+
+</body>
+</html>

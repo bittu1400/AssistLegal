@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Assistant Chat - LegalAssist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Legal<span>Assist</span></a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/index.html#domains">Law Domains</a></li>
+                    <li><a href="/index.html#about">About</a></li>
+                    <li><a href="login.html" class="btn btn-outline">Switch Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Chat Interface -->
+    <div class="container-fluid p-0">
+        <div class="chat-main">
+            <!-- Sidebar -->
+            <aside class="chat-sidebar">
+                <h3 class="sidebar-title">Law Domains</h3>
+                <ul class="domains-list">
+                    <li class="domain-item active">
+                        <div class="domain-item-icon"><i class="fas fa-shield-alt"></i></div>
+                        <span class="domain-item-title">Cyber Law</span>
+                    </li>
+                    <li class="domain-item disabled">
+                        <div class="domain-item-icon"><i class="fas fa-users"></i></div>
+                        <span class="domain-item-title">Family Law</span>
+                        <!-- <div class="coming-soon-chat">Coming Soon</div> -->
+
+                    </li>
+                    <li class="domain-item disabled">
+                        <div class="domain-item-icon"><i class="fas fa-building"></i></div>
+                        <span class="domain-item-title">Corporate Law</span>
+                        <!-- <div class="coming-soon-chat">Coming Soon</div> -->
+                    </li>
+                    <li class="domain-item disabled">
+                        <div class="domain-item-icon"><i class="fas fa-home"></i></div>
+                        <span class="domain-item-title">Property Law</span>
+                        <!-- <div class="coming-soon-chat">Coming Soon</div> -->
+                    </li>
+                    <li class="domain-item disabled">
+                        <div class="domain-item-icon"><i class="fas fa-gavel"></i></div>
+                        <span class="domain-item-title">Criminal Law</span>
+                        <!-- <div class="coming-soon-chat">Coming Soon</div> -->
+                    </li>
+                    <li class="domain-item disabled">
+                        <div class="domain-item-icon"><i class="fas fa-passport"></i></div>
+                        <span class="domain-item-title">Immigration Law</span>
+                        <!-- <div class="coming-soon-chat">Coming Soon</div> -->
+                    </li>
+                </ul>
+
+                <div class="mt-4">
+                    <h3 class="sidebar-title">Tips</h3>
+                    <div class="p-2 text-white-50">
+                        <p><small>Ask specific questions about cyber law topics such as:</small></p>
+                        <ul style="font-size: 0.8rem;">
+                            <li>Data protection rights</li>
+                            <li>Cybercrime definitions</li>
+                            <li>Digital intellectual property</li>
+                            <li>Online privacy regulations</li>
+                            <li>Digital contracts and signatures</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Chat Content -->
+            <div class="chat-content">
+                <div class="chat-header">
+                    <button class="toggle-sidebar-btn"><i class="fas fa-bars"></i></button>
+                    <div class="chat-title">
+                        <span class="current-domain">Cyber Law</span> Assistant
+                    </div>
+                    <div class="chat-title">
+                        Welcome <span id="chat-user-mental"></span>
+                    </div>
+                </div>
+                <div class="chat-body">
+                    <!-- Messages appear here -->
+                </div>
+                <div class="chat-input">
+                    <textarea class="chat-input-field" id="chat-place"
+                        placeholder="Type your message here..."></textarea>
+                    <button class="chat-send-btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+
+    <!-- Your custom JavaScript files -->
+    <script src="/static/js/main.js"></script>
+    <!-- <script src="/static/js/auth.js"></script> -->
+    <script src="/static/js/chatbot.js"></script>
+</body>
+
+</html>

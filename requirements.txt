@@ -1,0 +1,11 @@
+python-dotenv
+langchain-community
+langchain
+langchain-huggingface
+faiss-cpu
+google-generativeai
+fastapi
+uvicorn[standard]
+pydantic
+firebase-admin
+pypdf

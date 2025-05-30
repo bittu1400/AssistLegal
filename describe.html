@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Law - LegalAssist</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #f4f6f9;
+      color: #2c3e50;
+    }
+
+    .dis {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .dis iframe {
+      width: 100%;
+      height: 450px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .description h2 {
+      font-size: 28px;
+      color: #1a73e8;
+      margin-bottom: 16px;
+    }
+
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+      gap: 30px;
+    }
+
+    .reverse {
+      flex-direction: row-reverse;
+    }
+
+    .section .text {
+      flex: 1 1 500px;
+      font-size: 18px;
+      color: #2c3e50;
+      line-height: 1.8;
+      padding: 10px;
+    }
+
+    .section .text h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #1a73e8;
+    }
+
+    .image-wrapper {
+      flex: 1 1 100px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #data{
+      height: 250px;
+    }
+
+    .image-wrapper img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-wrapper img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* For screens 748px and below (tablets/small tablets) */
+@media (max-width: 748px) {
+  .section {
+    flex-direction: column !important;
+    gap: 20px;
+  }
+
+  .section.reverse {
+    flex-direction: column !important;
+  }
+
+  .section .text,
+  .image-wrapper {
+    flex: 1 1 100%;
+  }
+
+  .image-wrapper {
+    justify-content: center;
+  }
+
+  .image-wrapper img {
+    max-width: 90%;
+    height: auto;
+  }
+
+  iframe {
+    height: 300px !important;
+  }
+
+  .description {
+    font-size: 17px;
+  }
+
+  .description h2 {
+    font-size: 24px;
+  }
+
+  .section .text {
+    font-size: 17px;
+    padding: 8px;
+  }
+
+  .section .text h3 {
+    font-size: 20px;
+  }
+}
+
+/* For screens 400px and below (small mobiles) */
+@media (max-width: 400px) {
+  body {
+    font-size: 15px;
+  }
+
+  .dis {
+    margin: 15px 10px;
+    padding: 12px;
+  }
+
+  iframe {
+    height: 220px !important;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .description h2 {
+    font-size: 20px;
+  }
+
+  .section .text {
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  .section .text h3 {
+    font-size: 18px;
+  }
+
+  .image-wrapper img {
+    max-width: 100%;
+  }
+
+  /* Navbar adjustments for small mobiles */
+  nav.navbar {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 8px 0;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #2c3e50;
+  }
+}
+
+/* Hide mobile menu button on larger screens */
+.mobile-menu-btn {
+  display: none;
+}
+
+
+    
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="/index.html" class="logo">Legal<span>Assist</span></a>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/index.html#domains">Law Domains</a></li>
+          <li><a href="/index.html#about">About</a></li>
+          <li><a href="login.html" class="btn btn-outline">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="dis">
+    <iframe src="https://www.youtube.com/embed/ajTlLWK2_E8" frameborder="0" allowfullscreen></iframe>
+
+    <div class="description">
+      <h2>Understanding Cyber Law in Nepal</h2>
+      <p>
+        With the increasing use of the internet in Nepal, the country is strengthening its cybersecurity through initiatives like the Cyber Bureau of Nepal Police, which monitors and investigates online threats. This bureau plays a key role in addressing cybercrimes such as hacking, fraud, and data breaches. At the same time, public awareness and responsible online behavior—like using strong passwords and staying alert to phishing—are essential to reduce risks and build a safer digital environment.
+      </p>
+      <p>
+        As Nepal moves toward a digital future, Cyber Law plays a vital role in regulating behavior on the internet,
+        protecting users from digital harm, and creating a safe online environment. It not only safeguards individual
+        privacy but also provides a framework for e-commerce, digital signatures, and data security.
+      </p>
+      <p>
+        While the ETA serves as a foundational law, cyber threats continue to evolve, demanding more robust legal frameworks
+        and technical enforcement capabilities. For students, professionals, and entrepreneurs in Nepal, understanding these
+        laws helps in using the internet safely and responsibly.
+      </p>
+    </div>
+
+    <!-- Image + Description Sections -->
+    <div class="section">
+      <div class="text">
+        <h3>Cybersecurity Infrastructure in Nepal</h3>
+        <p>
+         With growing internet use, Nepal is boosting cybersecurity through the Cyber Bureau of Nepal Police, which tackles online threats.
+          Public awareness about malware, phishing, and unauthorized access is rising. Government efforts combined with personal responsibility 
+          are vital to reducing cyber risks. These measures aim to create a safer digital environment in Nepal. Continuous improvement and 
+          collaboration are essential to keep up with evolving cyber threats.
+        </p>
+      </div>
+      <div class="image-wrapper">
+        <img src="/static/svg/cybersecurity.jpg" alt="Cybersecurity image showing secure networks and protection mechanisms">
+      </div>
+    </div>
+
+    <div class="section reverse">
+      <div class="text">
+        <h3>Legal Framework for a Digital Society</h3>
+        <p>
+          Nepal's Electronic Transaction Act (ETA) serves as the foundational law regulating digital activities in the country. 
+          It addresses important areas such as online contracts, cybercrime, and the use of digital signatures. By establishing clear legal 
+          guidelines, the ETA helps create a secure environment for electronic commerce and communication. This law aims to build trust among 
+          users and businesses engaging in digital transactions. Overall, the ETA plays a crucial role in supporting Nepal’s transition to a 
+          digital economy by ensuring legal recognition and protection for electronic dealings.
+        </p>
+      </div>
+      <div class="image-wrapper">
+        <img src="/static/svg/Legal.png" alt="Illustration of digital law and regulations">
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="text">
+        <h3>Data Privacy and Protection Measures</h3>
+        <p>
+          Nepal faces increasing demand for strong data protection laws due to growing digital services like social media, e-commerce, and banking.
+           Users share sensitive personal and financial information that needs safeguarding. The country is working on laws to ensure transparency 
+           in data collection, require informed user consent, and hold organizations accountable for misuse. The aim is to protect privacy and 
+           promote responsible data management in both public and private sectors.
+        </p>
+      </div>
+      <div class="image-wrapper" id="data">
+        <img src="/static/svg/data.jpg" alt="Representation of data protection with locked folders and secure cloud">
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">Legal<span style="color: #3498db;">Assist</span></h3>
+          <p>Your AI-powered legal assistant for cyber law questions and concerns.</p>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="#domains">Law Domains</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Contact</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-envelope mr-1"></i> <a href="mailto:info@legalassist.com">info@legalassist.com</a></li>
+            <li><i class="fas fa-phone mr-1"></i><a href="tel:+9779703080105">+977-9703080105</a></li>
+            <li><i class="fas fa-map-marker-alt mr-1"></i> <a href="https://www.google.com/maps/place/Sunway+College+Kathmandu" target="_blank">Maitidevi, Kathmandu</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 LegalAssist | All Rights Reserved
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
